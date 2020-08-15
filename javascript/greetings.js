@@ -11,9 +11,26 @@ function paintGreeting(text) {
     greetings.innerText = `Hello ${text}`
 }
 
+function askName() {
+    form.classList.add(SHOWING_CN);
+    form.addEventListener("submit", handleSubmit);
+}
+
+function saveName(text) {
+    localStorage.setItem(USER_LS, text);
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    const currentValue = input.value;
+    paintGreeting(currentValue);
+    saveName(currentValue);
+}
+
 function loadName() {
     const currentUser = localStorage.getItem(USER_LS);
     if (currentUser === null) {
+        askName();
     } else {
         paintGreeting(currentUser);
     }
