@@ -16,6 +16,14 @@ ul {
     list-style: none;
 }
 
+button {
+    all: unset;
+}
+
+button:active {
+    transform: scale(0.8);
+}
+
 #main {
     margin-top: 10%;
 }
